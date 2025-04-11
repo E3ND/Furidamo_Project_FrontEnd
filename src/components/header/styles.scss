@@ -1,0 +1,15 @@
+.nav_bar_box {
+    width: 100%;
+    box-shadow: 0 4px 6px var(--color-site);
+
+    div {
+        display: flex;
+        justify-content: center;
+
+
+        p {
+            margin: 2rem 4rem;
+            color: var(--color-site);
+        }
+    }
+}
