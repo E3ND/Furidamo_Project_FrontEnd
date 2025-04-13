@@ -5,11 +5,13 @@ function Header() {
     return(
         <div className='nav_bar_box'>
             <div>
+                <p>Furidamo</p>
                 <p>Home</p>
-                <p>header</p>
-                <p>header</p>
-                <p>Registar</p>
-
+                <p>Comunidade</p>
+                <p>Amigos</p>
+                <p>
+                    <span>Criar conta</span>
+                </p>
             </div>
         </div>
     )
