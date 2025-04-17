@@ -1,0 +1,66 @@
+.login-page {
+    width: 100%;
+    display: flex;
+
+    div {
+        flex: 1;
+    }
+
+    div:first-child {
+        justify-items: center;
+        margin-top: 120px;
+
+        h1 {
+            color: var(--color-site);
+            font-size: 60px;
+        }
+
+        div {
+            margin: 1rem 0;
+            p {
+                margin-left: 5px;
+                margin-bottom: 5px;
+                color: var(--color-site);
+
+                span {
+                    color: var(--color-site);
+                    font-size: 14px;
+                }
+            }
+
+            input {
+                all: unset; /* remove praticamente tudo: margin, padding, border, background, etc. */
+                background-color: var(--color-background);
+                color: #FFF;
+                border: 1px solid var(--color-site);
+                padding: 9px;
+                border-radius: 30px;
+                width: 25rem;
+            }
+        }
+
+        button {
+            all: unset;
+            width: 25rem;
+            border-radius: 7px;
+            background-color: var(--color-site);
+
+            p {
+                text-align: center;
+                margin: 10px 0;
+                color: #FFF;
+            }
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: var(--color-site-hover);
+            transition: 0.2s;
+            color: var(--color-text-hover);
+        }
+    }
+
+    div:last-child {
+        color: var(--color-site);
+    }
+}
