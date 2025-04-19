@@ -1,34 +1,32 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import './styles.scss';
-
-interface IResponseLoginUser {
-    access_token: string;
-    user_id: string;
-}
+import Style from './Login.module.scss';
+import { IResponseLoginUser } from '../interfaces/loginRegister';
 
 function Login() {
     const apiUrl: string = process.env.REACT_APP_API_URL as string;
 
-    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [pointerBlocker, setPointerBlocker] = useState('');
 
     let userToken: IResponseLoginUser;
 
     useEffect(() => {
-        if (!name || !password) {
-            setPointerBlocker('pointer-block');
+        if (!email || !password) {
+            setPointerBlocker('pointer_block');
         } else {
-            setPointerBlocker('');
+            setPointerBlocker('pointer_free');
         }
-    }, [name, password])
+    }, [email, password])
 
     async function loginUser() {
+        if(pointerBlocker === 'pointer_block') return
+
         const response = await axios.post(`${apiUrl}/user/login`,
             {
-                email: name,
+                email: email,
                 password: password,
             },
             {
@@ -43,13 +41,13 @@ function Login() {
     }
 
     return (
-        <div className="login-page">
-            <div>
+        <div className={Style.login_page}>
+            <div className={Style.login_box}>
                 <h1>Entrar</h1>
 
                 <div>
-                    <p>Email: {name === '' ? <span>(Obrigatório)</span> : ''}</p>
-                    <input type="email" value={name} onChange={(e) => setName(e.target.value)} />
+                    <p>Email: {email === '' ? <span>(Obrigatório)</span> : ''}</p>
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
 
                 <div>
@@ -57,9 +55,9 @@ function Login() {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
 
-                <button id={`${pointerBlocker}`} onClick={loginUser}><p>Logar</p></button>
+                <button className={Style[pointerBlocker]} onClick={loginUser}><p>Logar</p></button>
 
-                <p>Já tem uma conta? <a href="#">Entre</a></p>
+                <p className={Style.register_link}>Já tem uma conta? <a href="#">Entre</a></p>
             </div>
         </div>
     )

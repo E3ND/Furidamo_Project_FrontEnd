@@ -4,6 +4,7 @@ import Login from './components/pages/login/index';
 
 import './style/global.scss';
 import Header from './components/header';
+import Register from './components/pages/register';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,25 @@
+.warning_box {
+    position: absolute;
+    width: 100%;
+    justify-items: center;
+    background-color: red;
+}
+
+.warning_bar {
+    width: 300px;
+    display: flex;
+
+    span {
+        
+    }
+
+    p {
+
+    }
+}
+
+.time {
+    background-color: blue;
+    padding: 1px;
+    width: 300px;
+}
