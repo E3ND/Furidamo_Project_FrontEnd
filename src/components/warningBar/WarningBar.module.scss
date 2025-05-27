@@ -2,24 +2,28 @@
     position: absolute;
     width: 100%;
     justify-items: center;
-    background-color: red;
+    z-index: 99;
 }
 
 .warning_bar {
-    width: 300px;
+    width: 800px;
     display: flex;
 
     span {
-        
+        font-size: 23px;
+        margin: 12px;
+        margin-left: 25px;
     }
 
     p {
-
+        font-size: 18px;
+        margin: 15px;
+        margin-left: 15px;
     }
 }
 
 .time {
-    background-color: blue;
-    padding: 1px;
-    width: 300px;
+    background-color: var(--color-site);
+    padding: 2px;
+    transition: width 50ms linear;
 }
