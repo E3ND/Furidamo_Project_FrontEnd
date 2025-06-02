@@ -1,12 +1,14 @@
 .warning_box {
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     justify-items: center;
     z-index: 99;
 }
 
 .warning_bar {
-    width: 800px;
+    width: 37.4vw;
     display: flex;
 
     span {
@@ -16,14 +18,31 @@
     }
 
     p {
-        font-size: 18px;
+        font-size: clamp(1rem, 1vw, 3rem);;
         margin: 15px;
         margin-left: 15px;
     }
+
+
 }
 
 .time {
     background-color: var(--color-site);
     padding: 2px;
     transition: width 50ms linear;
+}
+
+@media (max-width: 768px) {
+    .warning_bar {
+        display: inline-block;
+        justify-items: center;
+
+        span {
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
 }

@@ -14,6 +14,7 @@ function Register() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [pointerBlocker, setPointerBlocker] = useState('');
+    const [alert, setAlert] = useState<{ type: 'error' | 'success' | null, message: string }>({ type: null, message: '' });
 
     let userToken: IResponseLoginUser;
 
@@ -28,6 +29,15 @@ function Register() {
     async function registerUser() {
         if(pointerBlocker === 'pointer_block') return
 
+        setAlert({ type: null, message: '' });
+        
+        //TODO gambiarra fudida, resolver isso aqui depois, não rederiza ao clicar denovo no botão com um email inválido
+        if(!email.endsWith('@gmail.com')) {
+            await new Promise(resolve => setTimeout(resolve, 50));
+            setAlert({ type: 'error', message: 'Este não é um email válido' });
+            return
+        }
+
         const response = await axios.post(`${apiUrl}/user/create`,
             {
                 name: name,
@@ -40,21 +50,21 @@ function Register() {
                 }
         })
 
-        if(response.data.message) {
-            //TODO chamar componente de aviso
-        }
-
         userToken = response.data
+
+        if(userToken.status) {
+            setAlert({ type: 'error', message: userToken.message as string });
+        }
 
         console.log(userToken);
     }
     
     return (
         <div className={Style.register_page}>
-            <WarningBar type="error" message="testeeeeeeee" />
+            { alert.type && <WarningBar type={alert.type} message={alert.message} /> }
 
             <div className={Style.register_box_form}>
-                <div className={Style.border}>
+                <div className={Style.border_box}>
                     <h1>Crie sua conta</h1>
 
                     <div>

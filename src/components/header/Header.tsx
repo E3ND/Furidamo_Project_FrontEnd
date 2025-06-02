@@ -2,11 +2,19 @@ import { useState } from 'react';
 import Style from './styles.module.scss';
 
 function Header() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
+    const [active, setActive] = useState('mobile_menu_desabled');
 
-    function toggleMenu() {
-        setIsOpen(!isOpen);
-    }
+        const handleClick = () => {
+            setIsOpen(!isOpen);
+            console.log("oyeee => ", isOpen)
+            if(!isOpen) {
+                setActive('mobile_menu_desabled');
+            } else {
+                setActive('bar_div_mobile');
+            }
+        }
+
     return(
         <div className={Style.nav_bar_box}>
             <div className={Style.bar_div}>
@@ -20,12 +28,14 @@ function Header() {
             </div>
 
             <div className={Style.nav_menu_mobile}>
-                <span />
-                <span />
-                <span />
+                <div className={Style.nav_menu_mobile_box} onClick={handleClick}>
+                    <span />
+                    <span />
+                    <span />
+                </div>
             </div>
 
-            <div className={Style.bar_div_mobile}>
+            <div className={Style[active]}>
                 <p>Furidamo</p>
                 <p>Home</p>
                 <p>Comunidade</p>

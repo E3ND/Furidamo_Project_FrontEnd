@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Style from './Login.module.scss';
 import { IResponseLoginUser } from '../interfaces/loginRegister';
+import WarningBar from '../../warningBar/WarningBar';
 
 function Login() {
     const apiUrl: string = process.env.REACT_APP_API_URL as string;
@@ -10,6 +11,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [pointerBlocker, setPointerBlocker] = useState('');
+    const [alert, setAlert] = useState<{ type: 'error' | 'success' | null, message: string }>({ type: null, message: '' });
 
     let userToken: IResponseLoginUser;
 
@@ -19,10 +21,20 @@ function Login() {
         } else {
             setPointerBlocker('pointer_free');
         }
+
     }, [email, password])
 
     async function loginUser() {
         if(pointerBlocker === 'pointer_block') return
+
+        setAlert({ type: null, message: '' });
+        
+        //TODO gambiarra fudida, resolver isso aqui depois, não rederiza ao clicar denovo no botão com um email inválido
+        if(!email.endsWith('@gmail.com')) {
+            await new Promise(resolve => setTimeout(resolve, 50));
+            setAlert({ type: 'error', message: 'Este não é um email válido' });
+            return
+        }
 
         const response = await axios.post(`${apiUrl}/user/login`,
             {
@@ -37,15 +49,22 @@ function Login() {
 
         userToken = response.data
 
+        if(userToken.status) {
+            setAlert({ type: 'error', message: userToken.message as string });
+        }
+
         console.log(userToken);
     }
 
     return (
         <div className={Style.login_page}>
+            { alert.type && <WarningBar type={alert.type} message={alert.message} /> }
+
             <div className={Style.login_box}>
                 <h1>Entrar</h1>
 
                 <div>
+                    {/* <p>{emailMessage !== '' ? <span>{emailMessage}</span> : ''}</p> */}
                     <p>Email: {email === '' ? <span>(Obrigatório)</span> : ''}</p>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
