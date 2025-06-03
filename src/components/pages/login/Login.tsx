@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import Style from './Login.module.scss';
 import { IResponseLoginUser } from '../interfaces/loginRegister';
 import WarningBar from '../../warningBar/WarningBar';
+import { AuthContext } from '../../../context/UserProvider';
 
 function Login() {
+    const { authToken } = useContext(AuthContext);
     const apiUrl: string = process.env.REACT_APP_API_URL as string;
 
     const [email, setEmail] = useState('');
@@ -52,6 +54,8 @@ function Login() {
         if(userToken.status) {
             setAlert({ type: 'error', message: userToken.message as string });
         }
+
+        authToken(userToken.access_token);
 
         console.log(userToken);
     }
