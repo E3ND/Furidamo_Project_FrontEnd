@@ -2,16 +2,23 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Style from './styles.module.scss';
+import { useState } from "react";
 
 export default function PostPage() {
+    const [answerPointer, setAnswerPointer] = useState(false);
     const tags: string[] = [
         "Games",
         "Elden Ring",
         "Dúvidas"
     ];
+
+    const handleClickAnswer = () => {
+        setAnswerPointer(!answerPointer);
+    }
 
     return (
         <div className={Style.container_box}>
@@ -47,7 +54,25 @@ export default function PostPage() {
                     <div><FontAwesomeIcon icon={faThumbsUp} /></div>
                     <div><FontAwesomeIcon icon={faThumbsDown} /></div>
                     <div><FontAwesomeIcon icon={faHeart} /></div>
+                    { !answerPointer && <div className={Style.answer_button} onClick={handleClickAnswer}>Responder</div> }
                 </div>
+
+                { answerPointer &&  
+                <div className={Style.answer}>
+                    <div>
+                        <textarea className={Style.textarea_comment} />
+                    </div>
+
+                    <div>
+                        <div>
+                            <FontAwesomeIcon icon={faComment} />
+                            <p onClick={handleClickAnswer}>Cancelar</p>
+                        </div>
+                        <button>Comentar</button>
+                    </div>
+                </div>
+                }
+
             </div>
         </div>
     )
