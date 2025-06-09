@@ -17,16 +17,18 @@
         .back_page {
             display: flex;
 
-            div {
+            .back_page_link {
                 display: flex;
                 cursor: pointer;
+                text-decoration: none;
+                color: white;
 
                 p {
                     margin: 0 10px;
                 }
             }
 
-            div:hover {
+            .back_page_link:hover {
                 transition: 0.2s;
                 color: var(--color-text-hover);
             }

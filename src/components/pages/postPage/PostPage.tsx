@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Style from './styles.module.scss';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function PostPage() {
     const [answerPointer, setAnswerPointer] = useState(false);
@@ -25,10 +26,10 @@ export default function PostPage() {
             <div className={Style.box}>
                 
                 <div className={Style.back_page}>
-                    <div>
-                        <div><FontAwesomeIcon icon={faArrowLeft} /></div>
-                        <p>Voltar</p>
-                    </div>
+                        <Link to="/" className={Style.back_page_link}>
+                            <div><FontAwesomeIcon icon={faArrowLeft} /></div>
+                            <p>Voltar</p>
+                        </Link>
                 </div>
 
                 <div className={Style.profile_post}>
