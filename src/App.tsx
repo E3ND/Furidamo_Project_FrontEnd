@@ -8,6 +8,7 @@ import Header from './components/header/Header';
 import Register from './components/pages/register/Register';
 import { UserProvider, AuthContext  } from './context/UserProvider';
 import Home from './components/pages/home/Home';
+import PostPage from './components/pages/postPage/PostPage';
 
 function PrivateRoute({ children }: { children: JSX.Element }) {
   const { authenticated } = useContext(AuthContext);
@@ -26,6 +27,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/' element={<Home />} />
           {/* <Route path='/' element={<PrivateRoute><Home /></PrivateRoute>} /> */}
+          <Route path='/post' element={<PostPage />} />
         </Routes>
       </UserProvider>
     </Router>

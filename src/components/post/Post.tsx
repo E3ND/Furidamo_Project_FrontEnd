@@ -3,6 +3,7 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 import Style from './styles.module.scss';
+import { Link } from "react-router-dom";
 
 export default function Post() {
     const tags: string[] = [
@@ -19,11 +20,13 @@ export default function Post() {
 
             <div className={Style.box_2}>
                 <div className={Style.title}>
-                    <h3>Título do comentário</h3>
+                    <h3>
+                        <Link className={Style.title_link} to="/post">Título do comentário</Link>
+                    </h3>
                     <p>2 dias atrás</p>
                 </div>
 
-                <div className={Style.comment}><p>Cometáraio CometáraioCometáraioCometáraioCometáraioCometáraio CometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraioCometáraio</p></div>
+                <div className={Style.comment}><p>Cometáraio</p></div>
 
                 <div className={Style.tags}>
                     

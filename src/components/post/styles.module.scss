@@ -36,9 +36,14 @@
 
             h3 {
                 cursor: pointer;
+                
+                .title_link {
+                    text-decoration: none;
+                    color: white;
+                }
             }
 
-            h3:hover {
+            .title_link:hover {
                 transition: 0.2s;
                 color: var(--color-text-hover);
             }
