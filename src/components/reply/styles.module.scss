@@ -1,0 +1,55 @@
+.answer {
+    padding: 20px 15px;
+    background-color: rgb(34, 43, 56);
+    border: 2px solid rgb(48, 61, 78);
+    border-radius: 10px;
+
+    div:first-child {
+
+        .textarea_comment {
+            width: 100%;
+            resize: vertical;
+            min-height: 40px;
+            box-sizing: border-box;
+            padding: 5px 10px;
+            font-size: clamp(1rem, 0.5vw, 3rem);
+            border-radius: 6px;
+        }
+    }
+
+    div:last-child {
+        display: flex;
+        margin-top: 25px;
+        align-items: center;
+
+        div {
+            display: flex;
+            cursor: pointer;
+
+            p {
+                margin-left: 5px;
+            }
+        }
+
+        div:hover {
+            transition: 0.2s;
+            color: var(--color-text-hover);
+        }
+
+        button {
+            all: unset;
+            margin-left: auto;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: var(--color-site);
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transition: 0.2s;
+            background-color: var(--color-site-hover);
+            color: var(--color-text-hover);
+        }
+    }
+}

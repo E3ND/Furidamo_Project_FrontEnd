@@ -16,6 +16,7 @@
 
         .back_page {
             display: flex;
+            margin-bottom: 25px;
 
             .back_page_link {
                 display: flex;
@@ -160,5 +161,18 @@
                 }
             }
         }
+
+        .number_comments {
+            margin-top: 25px;
+        }
     }
+}
+
+.date{
+    font-style: italic;
+    color: var(--color-text-hover);
+}
+
+.reply {
+    margin-top: 20px;
 }

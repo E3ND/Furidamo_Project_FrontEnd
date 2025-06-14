@@ -8,9 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Style from './styles.module.scss';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Comment from "../../comment/Comment";
+import Reply from "../../reply/Reply";
 
 export default function PostPage() {
     const [answerPointer, setAnswerPointer] = useState(false);
+    
     const tags: string[] = [
         "Games",
         "Elden Ring",
@@ -37,7 +40,7 @@ export default function PostPage() {
                     <div>
                         <img src="image/profile.png" width={25} height={25} alt="" />
                         <p>Robert Junior</p>
-                        <p>15 de maio 2025</p>
+                        <p className={Style.date}>15 de maio 2025</p>
                     </div>
                 </div>
 
@@ -59,21 +62,14 @@ export default function PostPage() {
                 </div>
 
                 { answerPointer &&  
-                <div className={Style.answer}>
-                    <div>
-                        <textarea className={Style.textarea_comment} />
+                    <div className={Style.reply}>
+                        <Reply answerPointer={answerPointer} setAnswerPointer={setAnswerPointer} />
                     </div>
-
-                    <div>
-                        <div>
-                            <FontAwesomeIcon icon={faComment} />
-                            <p onClick={handleClickAnswer}>Cancelar</p>
-                        </div>
-                        <button>Comentar</button>
-                    </div>
-                </div>
                 }
-
+            
+                <h3 className={Style.number_comments}>4 Comentários</h3>
+                
+                <Comment />
             </div>
         </div>
     )
