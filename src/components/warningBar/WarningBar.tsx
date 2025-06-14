@@ -2,10 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { IWarningBar } from "./warningBar.types"
 
-import Style from './WarningBar.module.scss';
+import Style from './style.module.scss';
 import { useEffect, useState } from "react";
 
-function WarningBar(props: IWarningBar) {
+export default function WarningBar(props: IWarningBar) {
     const [width, setWidth] = useState(37.3);
     const [display, setDisplay] = useState("");
 
@@ -41,5 +41,3 @@ function WarningBar(props: IWarningBar) {
         </div>
     )
 }
-
-export default WarningBar

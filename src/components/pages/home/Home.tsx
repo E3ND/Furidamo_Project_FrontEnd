@@ -2,7 +2,7 @@ import Post from "../../post/Post"
 
 import Style from './styles.module.scss';
 
-function Home() {
+export default function Home() {
     return (
         <div className={Style.container}>
             <br /> <br /> <br />
@@ -10,5 +10,3 @@ function Home() {
         </div>
     )
 }
-
-export default Home

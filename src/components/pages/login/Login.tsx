@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
-import Style from './Login.module.scss';
+import Style from './style.module.scss';
 import { IResponseLoginUser } from '../interfaces/loginRegister';
 import WarningBar from '../../warningBar/WarningBar';
 import { AuthContext } from '../../../context/UserProvider';
 
-function Login() {
+export default function Login() {
     const { authToken } = useContext(AuthContext);
     const apiUrl: string = process.env.REACT_APP_API_URL as string;
 
@@ -85,5 +85,3 @@ function Login() {
         </div>
     )
 }
-
-export default Login

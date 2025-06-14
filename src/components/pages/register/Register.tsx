@@ -4,9 +4,9 @@ import axios from 'axios';
 import { IResponseLoginUser } from "../interfaces/loginRegister";
 import WarningBar from "../../warningBar/WarningBar";
 
-import Style from './Register.module.scss';
+import Style from './style.module.scss';
 
-function Register() {
+export default function Register() {
     const apiUrl: string = process.env.REACT_APP_API_URL as string;
 
     const [name, setName] = useState('');
@@ -97,5 +97,3 @@ function Register() {
         </div>
     )
 }
-
-export default Register

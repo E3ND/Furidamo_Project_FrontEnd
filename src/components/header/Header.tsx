@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Style from './styles.module.scss';
 
-function Header() {
+export default function Header() {
     const [isOpen, setIsOpen] = useState(true);
     const [active, setActive] = useState('mobile_menu_desabled');
 
@@ -47,5 +47,3 @@ function Header() {
         </div>
     )
 }
-
-export default Header
