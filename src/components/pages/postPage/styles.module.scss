@@ -67,6 +67,20 @@
             white-space: normal; 
         }
 
+        .carousel {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+
+            img {
+                display: block;
+                cursor: pointer;
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        }
+
         .tags {
             display: flex;
             margin-top: 15px;

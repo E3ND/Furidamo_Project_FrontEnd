@@ -1,3 +1,6 @@
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
@@ -6,13 +9,19 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Style from './styles.module.scss';
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import Comment from "../../comment/Comment";
 import Reply from "../../reply/Reply";
 
+//Yet Another React Lightbox
+import Lightbox, { ZoomRef } from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+
 export default function PostPage() {
     const [answerPointer, setAnswerPointer] = useState(false);
+    const [open, setOpen] = useState(false);
+    const zoomRef = useRef<ZoomRef>(null);
+    const [index, setIndex] = useState(0);
     
     const tags: string[] = [
         "Games",
@@ -23,6 +32,30 @@ export default function PostPage() {
     const handleClickAnswer = () => {
         setAnswerPointer(!answerPointer);
     }
+
+    const slides = [
+    {
+        id: 0,
+        src: "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2025/05/29/espectro-qhkkpxe9fsys.jpg",
+        alt: "image 1",
+        width: 3840,
+        height: 2560,
+    },
+    {
+        id: 1,
+        src: "https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg",
+        alt: "image 2",
+        width: 3840,
+        height: 2560,
+    },
+    {
+        id: 2,
+        src: "https://static.beebom.com/wp-content/uploads/2025/05/Revenant-Nightreign.jpg?w=1024",
+        alt: "image 3",
+        width: 3840,
+        height: 2560,
+    },
+    ];
 
     return (
         <div className={Style.container_box}>
@@ -46,6 +79,16 @@ export default function PostPage() {
 
                 <div className={Style.comment_user}>
                     comentário
+                </div>
+
+                <div className={Style.carousel}>
+                    {/* <button type="button" onClick={() => setOpen(true)}>
+                        Open Lightbox
+                    </button> */}
+                    {slides.map(key => {
+                        return <img src={key.src} alt="" draggable={false} onClick={() => (setOpen(true), setIndex(key.id))} />
+                    })}
+                    <Lightbox open={open} close={() => setOpen(false)} index={index} plugins={[Zoom]} zoom={{ ref: zoomRef }} slides={slides} />
                 </div>
 
                 <div className={Style.tags}>
