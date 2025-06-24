@@ -21,7 +21,7 @@ function App() {
     
     <Router>
       <UserProvider>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
