@@ -15,15 +15,27 @@ import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 import Post from "../../post/Post"
 
 import Style from './styles.module.scss';
+import { useEffect, useState } from "react";
 
 export default function Home() {
+    const [ disabledMenu, setDisabledMenu ] = useState(false);
+
+    const handleClickMenu = () => {
+        setDisabledMenu(!disabledMenu);
+    }
+
     return (
         <div className={Style.container}>
-            <div className={Style.box_menu}>
+            <div className={Style.menu_header}>
+                <div className={`${disabledMenu == true ? Style['menu_open_icon'] : Style['menu_disabled']}`} onClick={handleClickMenu}><FontAwesomeIcon icon={faIndent} /></div>
+                <div className={Style.menu_page}>Forum</div>
+            </div>
+
+            <div className={`${disabledMenu == false ? Style['box_menu'] : Style['menu_disabled']}`}>
                 <div className={Style.site_ui}>
                     {/* <img src="" alt="" /> */}
                     <h3>Furidamo UI</h3>
-                    <div><FontAwesomeIcon icon={faOutdent} /></div>
+                    <div onClick={handleClickMenu}><FontAwesomeIcon icon={faOutdent} /></div>
                     {/* <div><FontAwesomeIcon icon={faIndent} /></div> */}
                 </div>
 
