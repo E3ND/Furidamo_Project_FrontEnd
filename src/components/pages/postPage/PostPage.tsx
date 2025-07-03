@@ -7,15 +7,15 @@ import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Lightbox, { ZoomRef } from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+
+import "yet-another-react-lightbox/styles.css";
 
 import Style from './styles.module.scss';
 import Comment from "../../comment/Comment";
 import Reply from "../../reply/Reply";
 
-//Yet Another React Lightbox
-import Lightbox, { ZoomRef } from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 export default function PostPage() {
     const [answerPointer, setAnswerPointer] = useState(false);

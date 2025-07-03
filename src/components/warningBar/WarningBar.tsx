@@ -32,7 +32,7 @@ export default function WarningBar(props: IWarningBar) {
 
     return(
         <div className={Style.warning_box} style={{ display: `${display}` }}>
-            <div className={Style.warning_bar} style={{ backgroundColor: `${props.type == 'error' ? 'rgb(187, 58, 58)' : 'rgb(49, 161, 58)'}` }}>
+            <div className={Style.warning_bar} style={{ backgroundColor: `${props.type === 'error' ? 'rgb(187, 58, 58)' : 'rgb(49, 161, 58)'}` }}>
                 <span><FontAwesomeIcon icon={faTriangleExclamation} /></span>
                 <p>{props.message}</p>
             </div>

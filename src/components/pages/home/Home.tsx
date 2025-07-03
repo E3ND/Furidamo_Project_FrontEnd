@@ -11,11 +11,14 @@ import { faOutdent } from "@fortawesome/free-solid-svg-icons";
 import { faIndent } from "@fortawesome/free-solid-svg-icons";
 import { faTimeline } from "@fortawesome/free-solid-svg-icons";
 import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import Post from "../../post/Post"
 
 import Style from './styles.module.scss';
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     const [ disabledMenu, setDisabledMenu ] = useState(false);
@@ -27,11 +30,11 @@ export default function Home() {
     return (
         <div className={Style.container}>
             <div className={Style.menu_header}>
-                <div className={`${disabledMenu == true ? Style['menu_open_icon'] : Style['menu_disabled']}`} onClick={handleClickMenu}><FontAwesomeIcon icon={faIndent} /></div>
+                <div className={`${disabledMenu === true ? Style['menu_open_icon'] : Style['menu_disabled']}`} onClick={handleClickMenu}><FontAwesomeIcon icon={faIndent} /></div>
                 <div className={Style.menu_page}>Forum</div>
             </div>
 
-            <div className={`${disabledMenu == false ? Style['box_menu'] : Style['menu_disabled']}`}>
+            <div className={`${disabledMenu === false ? Style['box_menu'] : Style['menu_disabled']}`}>
                 <div className={Style.site_ui}>
                     {/* <img src="" alt="" /> */}
                     <h3>Furidamo UI</h3>
@@ -98,14 +101,48 @@ export default function Home() {
                     </div>
 
                     <div className={Style.profile}>
-                        <img src="image/profile.png" width={25} height={25} alt="" />
-                        <p>Nome Teste</p>
-                        <div><FontAwesomeIcon icon={faArrowRightFromBracket} /></div>
+                        <Link to="/profile" className={Style.link_profile} >
+                            <img src="image/profile.png" width={25} height={25} alt="" />
+                            <p>Nome Teste</p>
+                            <div><FontAwesomeIcon icon={faArrowRightFromBracket} /></div>
+                        </Link>
                     </div>
                 </div>
             </div>
             <div className={Style.box_post}>
+                        <div className={Style.filter}>
+            <select name="teste" id="teste2">
+                <option value="a">Mais recentes</option>
+                <option value="b">Mais antigo</option>
+                <option value="c">Mais curtido</option>
+                <option value="d">Mais comentados</option>
+            </select>
+
+            <div>
+                <input type="search" placeholder="Pesquisar" name="" id="" />
+            </div>
+        </div>
                 <Post />
+
+                        <div className={Style.pagination}>
+            <div className={Style.pagination_box}>
+                <div className={Style.arrow_left}><FontAwesomeIcon icon={faArrowLeft} /></div>
+
+                <div className={Style.pagination_numbers}>
+                    <span className={Style.span}>1</span>
+                    <span className={Style.span}>2</span>
+                    <span className={Style.span_selected}>3</span>
+                    <span className={Style.span}>4</span>
+                    <span className={Style.span}>5</span>
+                    <span className={Style.span}>6</span>
+                    <span className={Style.span}>7</span>
+                    <span className={Style.span}>8</span>
+                    <span className={Style.span}>9</span>
+                    <span className={Style.span}>10</span>
+                </div>
+                <div className={Style.arrow_right}><FontAwesomeIcon icon={faArrowRight} /></div>
+            </div>
+        </div>
             </div>
         </div>
     )

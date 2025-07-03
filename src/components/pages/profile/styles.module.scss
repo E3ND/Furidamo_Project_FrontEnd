@@ -1,0 +1,63 @@
+.profile_container {
+    width: 100%;
+
+    .profile_box {
+         width: 40vw;
+         justify-self: center;
+         background-color: rgb(34, 43, 56);
+
+         .banner {
+             width: 40vw;
+             height: 150px;
+             justify-self: center;
+             margin-bottom: 30px;
+     
+             img {
+                 position: fixed;
+             }
+     
+             .banner_image {
+                 width: 40vw;
+                 height: 150px;
+             }
+         }
+     
+         .banner_photo {
+             width: 90px;
+             height: 90px;
+             margin: 0 auto;
+     
+             img {
+                 width: 90px;
+                 height: 90px;
+                 border-radius: 100%;
+                 margin-top: 75px;
+             }
+         }
+    }
+
+    .nickname {
+        justify-self: center;
+        color: white;
+    }
+}
+
+
+.box_post {
+    width: 500px;
+}
+
+@media (max-width: 758px) {
+    .banner {
+        width: 100%;
+        justify-self: start !important;
+
+        .banner_image {
+            width: 100% !important;
+        }
+    }
+
+    body {
+        background-color: red;
+    }
+}
