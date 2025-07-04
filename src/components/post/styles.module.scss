@@ -5,7 +5,7 @@
     background-color: rgb(34, 43, 56);
     border: 2px solid rgb(48, 61, 78);
     border-radius: 10px;
-    color: white;
+    color: var(--color-text);
 
     .box_1 {
         width: 50px;
@@ -41,7 +41,7 @@
                 
                 .title_link {
                     text-decoration: none;
-                    color: white;
+                    color: var(--color-text);
                 }
             }
 

@@ -2,62 +2,237 @@
     width: 100%;
 
     .profile_box {
-         width: 40vw;
-         justify-self: center;
-         background-color: rgb(34, 43, 56);
+        width: 45vw;
+        justify-self: center;
+        padding-bottom: 20px;
+        border-radius: 10px;
+        background-color: rgb(34, 43, 56);
 
-         .banner {
-             width: 40vw;
-             height: 150px;
-             justify-self: center;
-             margin-bottom: 30px;
-     
-             img {
-                 position: fixed;
-             }
-     
-             .banner_image {
-                 width: 40vw;
-                 height: 150px;
-             }
-         }
-     
-         .banner_photo {
-             width: 90px;
-             height: 90px;
-             margin: 0 auto;
-     
-             img {
-                 width: 90px;
-                 height: 90px;
-                 border-radius: 100%;
-                 margin-top: 75px;
-             }
-         }
+        .banner {
+            width: 45vw;
+            height: 150px;
+            justify-self: center;
+            margin-bottom: 30px;
+
+            img {
+                position: fixed;
+            }
+
+            .banner_image {
+                width: 45vw;
+                height: 150px;
+            }
+        }
+
+        .banner_photo {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto;
+
+            img {
+                width: 90px;
+                height: 90px;
+                border-radius: 100%;
+                margin-top: 75px;
+            }
+        }
     }
 
     .nickname {
         justify-self: center;
-        color: white;
-    }
-}
+        color: var(--color-text);
 
-
-.box_post {
-    width: 500px;
-}
-
-@media (max-width: 758px) {
-    .banner {
-        width: 100%;
-        justify-self: start !important;
-
-        .banner_image {
-            width: 100% !important;
+        p {
+            text-align: center;
+            font-size: 14px;
+            color: #abbcc3;
         }
     }
 
-    body {
-        background-color: red;
+    .list_profile {
+        display: flex;
+        justify-self: center;
+        margin: 20px 0;
+
+        .profile_border {
+            display: flex;
+            border-bottom: 1px solid rgb(48, 61, 78);
+
+            .list_type {
+                padding: 10px 92px;
+                color: var(--color-text-hover);
+
+                p {
+                    cursor: pointer;
+                }
+            }
+
+            .list_type_hover {
+                padding: 10px 92px;
+                color: var(--color-text);
+                border-bottom: 1px solid var(--color-site);
+
+                p {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .profile_information_title {
+        margin: 20px 26px;
+        color: var(--color-text);
+    }
+
+    .profile_information_container {
+        display: flex;
+        margin: 20px 26px;
+        border-bottom: 1px solid rgb(48, 61, 78);
+
+        .profile_information_flex_1 {
+            flex: 1;
+            color: var(--color-text);
+
+            p {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+
+            p:last-of-type {
+                margin-top: 12px;
+            }
+        }
+
+        .profile_information_flex_2 {
+            flex: 2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            p {
+                font-size: 16px;
+                margin: 10px 0;
+                color: var(--color-text);
+
+            }
+
+            .profile_social {
+                display: flex;
+
+                p {
+                    font-size: 12px;
+                    margin: 10px 0;
+                    margin-top: auto;
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                    border: 1px solid rgb(48, 61, 78);
+                    color: var(--color-text);
+                    cursor: pointer;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .box_post {
+        width: 100%;
+
+        .box_post_component {
+            width: calc(100% - 52px);
+            margin-left: 26px;
+            margin-right: 26px;
+        }
+    }
+
+    .pagination {
+        margin-top: 30px;
+        justify-items: center;
+
+        .pagination_box {
+            display: flex;
+            gap: 10px;
+            width: fit-content;
+        }
+
+        .arrow_left {
+            padding: 0 14px;
+            padding-top: 8px;
+            padding-bottom: 6px;
+            border-radius: 10px;
+            background-color: rgb(34, 43, 56);
+            border: 1px solid rgb(48, 61, 78);
+            color: var(--color-text);
+            cursor: pointer;
+        }
+
+        .arrow_left:hover {
+            transition: 0.2s;
+            color: var(--color-text-hover);
+        }
+
+        .pagination_numbers {
+            display: flex;
+
+            .span {
+                color: var(--color-text);
+                margin: 0 10px;
+                padding: 0 14px;
+                padding-top: 8px;
+                padding-bottom: 6px;
+                border-radius: 10px;
+                background-color: rgb(34, 43, 56);
+                border: 1px solid rgb(48, 61, 78);
+                color: var(--color-text);
+                cursor: pointer;
+            }
+
+            .span:hover {
+                transition: 0.2s;
+                color: var(--color-text-hover);
+            }
+
+            .span_selected {
+                color: var(--color-text);
+                margin: 0 10px;
+                padding: 0 14px;
+                padding-top: 8px;
+                padding-bottom: 6px;
+                border-radius: 10px;
+                background-color: var(--color-site);
+                border: 1px solid var(--color-text-hover);
+                color: var(--color-text);
+                cursor: pointer;
+            }
+        }
+
+        .arrow_right {
+            padding: 0 14px;
+            padding-top: 8px;
+            padding-bottom: 6px;
+            border-radius: 10px;
+            background-color: rgb(34, 43, 56);
+            border: 1px solid rgb(48, 61, 78);
+            color: var(--color-text);
+            cursor: pointer;
+        }
+
+        .arrow_right:hover {
+            transition: 0.2s;
+            color: var(--color-text-hover);
+        }
+    }
+}
+
+@media (max-width: 758px) {
+    .profile_box {
+        justify-self: start !important;
+
+        .banner {
+            width: 100%;
+
+            .banner_image {
+                width: 100% !important;
+            }
+        }
     }
 }
