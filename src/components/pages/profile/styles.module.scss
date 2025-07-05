@@ -1,5 +1,6 @@
 .profile_container {
     width: 100%;
+    margin-top: 71px;
 
     .profile_box {
         width: 45vw;
@@ -10,17 +11,16 @@
 
         .banner {
             width: 45vw;
-            height: 150px;
             justify-self: center;
-            margin-bottom: 30px;
+            margin-bottom: 130px;
 
             img {
-                position: fixed;
+                position: absolute;
             }
 
             .banner_image {
                 width: 45vw;
-                height: 150px;
+                height: 200px;
             }
         }
 
@@ -33,7 +33,7 @@
                 width: 90px;
                 height: 90px;
                 border-radius: 100%;
-                margin-top: 75px;
+                margin-top: 120px;
             }
         }
     }
