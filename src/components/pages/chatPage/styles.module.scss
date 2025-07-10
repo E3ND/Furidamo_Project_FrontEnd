@@ -1,0 +1,166 @@
+.container_chat {
+    display: flex;
+    width: 60vw;
+    justify-self: center;
+    background-color: rgb(34, 43, 56);
+    margin-top: 100px;
+
+    .chat_friends {
+        width: 20vw;
+        border-right: 2px solid rgb(48, 61, 78);
+
+        .friend {
+            color: var(--color-text);
+            border-bottom: 2px solid rgb(48, 61, 78);
+
+            .friend_container {
+                display: flex;
+                flex-direction: row;
+                padding: 20px 10px 20px 10px;
+
+
+                .friend_image img {
+                    width: 50px;
+                    margin-right: 10px;
+                    border-radius: 100%;
+                    flex: 1;
+                }
+
+                .friend_title_container {
+                    align-self: center;
+                    flex: 1;
+
+                    .friend_title {
+                        display: flex;
+
+                        p {
+                            color: var(--color-text-hover);
+                            margin-left: auto;
+                        }
+                    }
+
+                    .beginning_message {
+                        display: flex;
+                        margin-top: 5px;
+                        color: var(--color-text-hover);
+                        
+                        //todo criculo perfeito replicar nos outros
+                        div {
+                            margin-left: auto;
+                            background-color: #0d53d8;
+                            border-radius: 50%;
+                            width: 20px;      
+                            height: 20px;  
+                            display: flex;     
+                            justify-content: center;
+                            align-items: center;
+
+                            p {
+                                font-size: 12px;
+                                padding: 0;        
+                                margin: 0;
+                                color: var(--color-text);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .chat_messages {
+        flex: 1;
+        color: var(--color-text);
+
+        .friend_information {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 2px solid rgb(48, 61, 78);
+
+            img {
+                width: 50px;
+                border-radius: 100%;
+                margin-right: 10px;
+            }
+        }
+
+        .container_send_message {
+            display: flex;
+            flex-direction: column;
+            height: 75vh;
+
+            .chat {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                overflow-y: auto;
+                scrollbar-width: 100px;
+                margin: 20px 0;
+
+                .friend_message {
+                    max-width: 400px;
+                    width: fit-content;
+                    background-color: var(--color-background);
+                    margin: 20px 20px 0 20px;
+                    border-radius: 10px;
+
+                    p {
+                        padding: 10px 35px 10px 10px;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word; 
+                        white-space: normal;
+                    }
+                }
+
+                .your_message {
+                    max-width: 400px;
+                    width: fit-content;
+                    background-color: #0d53d8;
+                    margin: 20px 20px 0 auto;
+                    border-radius: 10px;
+
+                    p {
+                        padding: 10px 10px 10px 35px;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word; 
+                        white-space: normal;
+                    }
+                }
+            }
+
+            .input_box {
+                margin-top: auto;
+                border-top: 2px solid rgb(48, 61, 78);;
+
+                .input {
+                    display: flex;
+                    margin: 20px;
+
+                    input {
+                        width: 35vw;
+                        border: none;
+                        outline: none;
+                        background: none;
+                        border: 2px solid rgb(48, 61, 78);
+                        border-radius: 10px;
+                        padding: 10px;
+                        color: var(--color-text);
+                    } 
+
+                    div {
+                        margin-left: 10px;
+                        align-content: center;
+                        cursor: pointer;
+                    }
+
+                    div:hover {
+                        transition: 0.2s;
+                        color: var(--color-text-hover);
+                    }
+                }
+            }
+        }
+    }
+}

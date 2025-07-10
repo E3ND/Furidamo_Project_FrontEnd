@@ -5,7 +5,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Post from "../../post/Post"
 
 import Style from './styles.module.scss';
-import Header from "../../header/Header";
 
 export default function Home() {
 

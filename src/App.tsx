@@ -10,6 +10,7 @@ import Home from './components/pages/home/Home';
 import PostPage from './components/pages/postPage/PostPage';
 import Profile from './components/pages/profile/Profile';
 import Header from './components/header/Header';
+import ChatPage from './components/pages/chatPage/ChatPage';
 
 function PrivateRoute({ children }: { children: JSX.Element }) {
   const { authenticated } = useContext(AuthContext);
@@ -34,6 +35,7 @@ function LayoutWrapper() {
           {/* <Route path='/' element={<PrivateRoute><Home /></PrivateRoute>} /> */}
           <Route path='/profile' element={<Profile />} />
           <Route path='/post' element={<PostPage />} />
+          <Route path='/chat' element={<ChatPage />} />
        </Routes>
     </>
   )
