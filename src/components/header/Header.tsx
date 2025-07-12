@@ -76,7 +76,7 @@ export default function Header() {
                     </div>
 
                     <div className={Style.dashboard}>
-                        <Link className={Style.dashboard_link} to="/">
+                        <Link className={Style.dashboard_link} to="/chat">
                             <div><FontAwesomeIcon icon={faMessage} /></div>
                             <p>Menssagens</p>
                         </Link>
