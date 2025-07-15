@@ -60,39 +60,40 @@ export default function Register() {
     }
     
     return (
-        <div className={Style.register_page}>
+        <div className={Style.register_container}>
             { alert.type && <WarningBar type={alert.type} message={alert.message} /> }
-
-            <div className={Style.register_box_form}>
-                <div className={Style.border_box}>
-                    <h1>Crie sua conta</h1>
-
-                    <div>
-                        <p>Nome: {name === '' ? <span>(Obrigatório)</span> : ''}</p>
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    </div>
-
-                    <div>
-                        <p>Email: {email === '' ? <span>(Obrigatório)</span> : ''}</p>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-
-                    <div>
-                        <p>Senha: {password === '' ? <span>(Obrigatório)</span> : ''}</p>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-
-                    <div>
-                        <p>Confirmar senha: {confirmPassword !== password ? <span>(As senhas não coincidem)</span> : ''}</p>
-                        <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                    </div>
-
-                    <button className={Style[pointerBlocker]} onClick={registerUser}><p>Criar conta</p></button>
+            <div className={Style.register_box}>
+                <div className={Style.logo_site}>
+                    <img src="image/furidamo_logo.png" alt="Furidamo logo" />
                 </div>
-            </div>
-            <div className={Style.register_box_image}>
-                {/*TODO Mudar pra uma imagem que combine com o site(fazer uma) */}
-                <img src="image/imagem-teste.jpg" alt="Website cover photo" />
+
+                <div className={Style.title_site}>
+                    <h2>Furidamo</h2>
+                </div>
+
+                <div className={Style.register_input}>
+                    <p>Nome: {name === '' ? <span>(Obrigatório)</span> : ''}</p>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+
+                <div className={Style.register_input}>
+                    <p>Email: {email === '' ? <span>(Obrigatório)</span> : ''}</p>
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+
+                <div className={Style.register_input}>
+                    <p>Senha: {password === '' ? <span>(Obrigatório)</span> : ''}</p>
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
+
+                <div className={Style.register_input}>
+                    <p>Confirmar senha: {confirmPassword !== password ? <span>(As senhas não coincidem)</span> : ''}</p>
+                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                </div>
+
+                <div className={Style.register_button}>
+                    <button className={Style[pointerBlocker]} onClick={registerUser}>Criar conta</button>
+                </div>
             </div>
         </div>
     )

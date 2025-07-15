@@ -1,112 +1,85 @@
-.register_page {
+.register_container {
     width: 100%;
     height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
 
+    .register_box {
+        width: 40vw;
+        color: var(--color-text);
 
-    .border_box {
-        width: 25vw;
-        min-width: 190px;
-        height: auto;
-        justify-items: center;
-        border: 0.2px solid var(--color-site);
-        box-shadow: 0 4px 20px rgba(#A351CF, 0.5);
-    }
+        .logo_site {
+            justify-self: center;
 
-    .register_box_form {
-        justify-items: center;
-        margin-top: 120px;
-
-        h1 {
-            margin-top: 25px;
-            color: var(--color-site);
-            font-size: clamp(1.5rem, 2vw, 8rem);
+            img {
+                width: 100px;
+                height: 100px;
+            }
         }
 
-        div {
-            margin: 1rem 0;
-            padding: 0 50px;
-            p {
-                color: var(--color-site);
-                margin-left: 5px;
-                margin-bottom: 5px;
-                width: calc(100% - 50px);
+        .title_site {
+            justify-self: center;
+        }
 
-                span {
-                    color: var(--color-site);
-                    font-size: 14px;
-                }
+        .register_input {
+            width: 100%;
+            justify-self: center;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                width: 80%;
+                margin-left: 9%;
+                margin-top: 20px;
+                margin-bottom: 5px;
             }
 
             input {
-                all: unset; 
-                background-color: var(--color-background);
-                color: #FFF;
-                border: 1px solid var(--color-site);
-                padding: 9px;
-                border-radius: 30px;
-                width: 22vw;
-                min-width: 220px;
-                justify-content: center;
                 margin: 0 auto;
-                display: block;
+                width: 80%;
+                border: none;
+                outline: none;
+                background: none;
+                border: 2px solid rgb(48, 61, 78);
+                background-color: rgb(34, 43, 56);
+                border-radius: 10px;
+                padding: 10px;
+                color: var(--color-text);
             }
         }
 
-        .pointer_free {
-            all: unset;
-            width: 22.5vw;
-            min-width: 250px;
-            border-radius: 7px;
-            background-color: var(--color-site);
+        .pointer_block {
+            cursor: not-allowed;
+            margin: 25px auto;
+            width: 83%;
+            background-color: #0e4bbe;
+            color: var(--color-text);
+            border: none;
+            padding: 15px 10px;
+            border-radius: 10px;
+        }
 
-            p {
-                text-align: center;
-                margin: 10px 0;
-                color: #FFF;
+        .register_button {
+            width: 100%;
+            display: flex;
+
+            .pointer_free {
+                margin: 25px auto;
+                width: 83%;
+                background-color: #0d53d8;
+                color: var(--color-text);
+                border: none;
+                padding: 15px 10px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            .pointer_free:hover {
+                transition: 0.2s;
+                color: var(--color-text-hover);
+                background-color: #0e4bbe;
             }
         }
-
-        .pointer_free:hover {
-            cursor: pointer;
-            background-color: var(--color-site-hover);
-            transition: 0.2s;
-            color: var(--color-text-hover);
-        }
-    }
-
-    .register_box_image {
-
-        img {
-            width: 600px;
-            height: 700px;
-            margin: 60px 0;
-        }
-    }
-}
-
-.pointer_block {
-    all: unset;
-    cursor: not-allowed;
-    width: 22.5vw;
-    min-width: 250px;
-    border-radius: 7px;
-    background-color: var(--color-site-hover);
-
-    p {
-        text-align: center;
-        margin: 10px 0;
-        color: #FFF;
-    }
-}
-
-@media (max-width: 768px) {
-    .register_page {
-        grid-template-columns: 1fr;
-    }
-    .register_box_image {
-        display: none;
     }
 }
