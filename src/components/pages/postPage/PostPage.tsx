@@ -95,8 +95,8 @@ export default function PostPage() {
                     </div>
 
                     <div className={Style.tags}>
-                        {tags.map((key: string) => {
-                            return <div className={Style.tags_border}><p>{key}</p></div>
+                        {tags.map((key: string, index: number) => {
+                            return <div className={Style.tags_border} key={index}><p>{key}</p></div>
                         })}
                     </div>
 

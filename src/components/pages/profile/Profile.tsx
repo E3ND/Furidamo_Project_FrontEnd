@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { JSX, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -7,8 +7,45 @@ import Post from '../../post/Post';
 import Style from './styles.module.scss';
 
 export default function Profile() {
+    const [numberPaginationBack, setNumberPaginationBack] = useState(10);
+    const [screenSize, setScreenSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
     const [arrayMenu, setArrayMenu] = useState(["list_type", "list_type_hover", "list_type"]);
     let fakeArrayMenu = ["list_type", "list_type_hover", "list_type"];
+    const [paginationElement, setPaginationElement] = useState<JSX.Element[]>([]);
+
+    useEffect(() => {
+        function handleResize() {
+            setScreenSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        if(screenSize.width < 1920) {
+            setNumberPaginationBack(5);
+        }
+        console.log("SIZE ==> ", screenSize.width)
+        const elements: JSX.Element[] = [];
+
+        for (let i = 0; i < numberPaginationBack; i++) {
+            if (i === 2) {
+                elements.push(<span key={i} className={Style.span_selected}>{i + 1}</span>);
+                return;
+            }
+            elements.push(<span key={i} className={Style.span}>{i + 1}</span>);
+        }
+
+        setPaginationElement(elements);
+    }, [numberPaginationBack, screenSize]);
 
     const handleClickMyMenu = (id: number) => {
         for (let i = 0; i < fakeArrayMenu.length; i++) {
@@ -87,16 +124,7 @@ export default function Profile() {
                         <div className={Style.arrow_left}><FontAwesomeIcon icon={faArrowLeft} /></div>
 
                         <div className={Style.pagination_numbers}>
-                            <span className={Style.span}>1</span>
-                            <span className={Style.span}>2</span>
-                            <span className={Style.span_selected}>3</span>
-                            <span className={Style.span}>4</span>
-                            <span className={Style.span}>5</span>
-                            <span className={Style.span}>6</span>
-                            <span className={Style.span}>7</span>
-                            <span className={Style.span}>8</span>
-                            <span className={Style.span}>9</span>
-                            <span className={Style.span}>10</span>
+                            {paginationElement}
                         </div>
                         <div className={Style.arrow_right}><FontAwesomeIcon icon={faArrowRight} /></div>
                     </div>

@@ -12,6 +12,8 @@ import { useState } from "react";
 export default function Comment() {
     const [answerPointer, setAnswerPointer] = useState(false);
     const [answerOfAnswerPointer, setAnswerOfAnswerPointer] = useState(false);
+    const [showMenuOption, setShowMenuOption] = useState(false);
+    const [showMenuReplyOption, setShowMenuReplyOption] = useState(false);
 
     const handleClickAnswer = () => {
         setAnswerPointer(!answerPointer);
@@ -21,13 +23,29 @@ export default function Comment() {
         setAnswerOfAnswerPointer(!answerOfAnswerPointer);
     }
 
+    const handleClickShowMenu = () => {
+        setShowMenuOption(!showMenuOption);
+    }
+
+    const handleClickShowMenuReply = () => {
+        setShowMenuReplyOption(!showMenuReplyOption);
+    }
+
     return(
         <div className={Style.Comment_container}>
             <div className={Style.Comment_content}>
                 <img src="image/profile.png" width={25} height={25} alt="" />
                 <p>Nelson Martins</p>
                 <p className={Style.date}>1 dia atrás</p>
-                <div><FontAwesomeIcon icon={faEllipsis} /></div>
+                <div>
+                    <FontAwesomeIcon icon={faEllipsis} onClick={handleClickShowMenu} />
+                    {showMenuOption && 
+                        <div>
+                            <p>Editar</p>
+                            <p>Excluír</p>
+                        </div>
+                    }
+                </div>
             </div>
 
             <div className={Style.comment}>
@@ -60,7 +78,14 @@ export default function Comment() {
                         <p>Nelson Martins</p>
                     </div>
                     <p className={Style.date}>1 dia atrás</p>
-                    <div><FontAwesomeIcon icon={faEllipsis} /></div>
+                    <div><FontAwesomeIcon icon={faEllipsis} onClick={handleClickShowMenuReply} />
+                    {showMenuReplyOption && 
+                        <div>
+                            <p>Editar</p>
+                            <p>Excluír</p>
+                        </div>
+                        }
+                    </div>
                 </div>
 
                 <div className={Style.comment}>
