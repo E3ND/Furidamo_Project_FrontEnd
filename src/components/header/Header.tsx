@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
@@ -18,17 +18,27 @@ import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 import Style from './styles.module.scss';
 
 export default function Header() {
+    const location = useLocation();
     const [disabledMenu, setDisabledMenu] = useState(false);
+    const [pageName, setPageName] = useState('');
 
     const handleClickMenu = () => {
         setDisabledMenu(!disabledMenu);
     }
 
+    useEffect(() => {
+        if(location.pathname) {
+            setPageName(location.pathname.split('/')[1])
+        }
+    }, [location])
+
     return (
         <div className={Style.container_menu_header}>
             <div className={Style.menu_header}>
-                <div className={`${disabledMenu === true ? Style['menu_open_icon'] : Style['menu_disabled']}`} onClick={handleClickMenu}><FontAwesomeIcon icon={faIndent} /></div>
-                <div className={Style.menu_page}>Forum</div>
+                <div className={Style.border}>
+                    <div className={`${disabledMenu === true ? Style['menu_open_icon'] : Style['menu_disabled']}`} onClick={handleClickMenu}><FontAwesomeIcon icon={faIndent} /></div>
+                </div>
+                <div className={Style.menu_page}>{pageName}</div>
             </div>
 
             <div className={`${disabledMenu === false ? Style['box_menu'] : Style['menu_disabled']}`}>
@@ -46,7 +56,7 @@ export default function Header() {
                 <div className={Style.list}>
                     <p className={Style.content_title}>Home</p>
                     <div className={Style.dashboard}>
-                        <Link className={Style.dashboard_link} to="/">
+                        <Link className={Style.dashboard_link} to="/forum">
                             <div><FontAwesomeIcon icon={faTableCellsLarge} /></div>
                             <p>Dashboard</p>
                         </Link>
@@ -54,14 +64,14 @@ export default function Header() {
 
                     <p className={Style.content_title}>Aplicações</p>
                     <div className={Style.dashboard}>
-                        <Link className={Style.dashboard_link} to="/">
+                        <Link className={Style.dashboard_link} to="/forum">
                             <div><FontAwesomeIcon icon={faEnvelope} /></div>
                             <p>Email</p>
                         </Link>
                     </div>
 
                     <div className={Style.dashboard}>
-                        <Link className={Style.dashboard_link} to="/">
+                        <Link className={Style.dashboard_link} to="/forum">
                             <div><FontAwesomeIcon icon={faBell} /></div>
                             <p>Notificações</p>
                         </Link>
@@ -69,7 +79,7 @@ export default function Header() {
                     </div>
 
                     <div className={Style.dashboard}>
-                        <Link className={Style.dashboard_link} to="/">
+                        <Link className={Style.dashboard_link} to="/forum">
                             <div><FontAwesomeIcon icon={faTimeline} /></div>
                             <p>Timeline</p>
                         </Link>
@@ -84,7 +94,7 @@ export default function Header() {
                     </div>
 
                     <div className={Style.dashboard}>
-                        <Link className={Style.dashboard_link} to="/">
+                        <Link className={Style.dashboard_link} to="/forum">
                             <div><FontAwesomeIcon icon={faPeopleGroup} /></div>
                             <p>Comunidade</p>
                         </Link>
@@ -92,7 +102,7 @@ export default function Header() {
 
                     <p className={Style.content_title}>Ferramentas</p>
                     <div className={Style.dashboard}>
-                        <Link className={Style.dashboard_link} to="/">
+                        <Link className={Style.dashboard_link} to="/forum">
                             <div><FontAwesomeIcon icon={faGear} /></div>
                             <p>Configuração</p>
                         </Link>

@@ -2,8 +2,8 @@
 
 .post_box {
     display: flex;
-    background-color: rgb(34, 43, 56);
-    border: 2px solid rgb(48, 61, 78);
+    background-color: var(--color-card);
+    border: 2px solid var(--color-card-border);
     border-radius: 10px;
     color: var(--color-text);
 

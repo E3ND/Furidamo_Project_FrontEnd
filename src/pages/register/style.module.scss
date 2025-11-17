@@ -41,8 +41,8 @@
                 border: none;
                 outline: none;
                 background: none;
-                border: 2px solid rgb(48, 61, 78);
-                background-color: rgb(34, 43, 56);
+                border: 2px solid var(--color-card-border);
+                background-color: var(--color-card);
                 border-radius: 10px;
                 padding: 10px;
                 color: var(--color-text);

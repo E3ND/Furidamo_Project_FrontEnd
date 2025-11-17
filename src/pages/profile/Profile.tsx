@@ -3,49 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import Post from '../../post/Post';
+import Post from '../../components/post/Post';
 import Style from './styles.module.scss';
+import Pagination from '../../components/pagination/Pagination';
 
 export default function Profile() {
-    const [numberPaginationBack, setNumberPaginationBack] = useState(10);
-    const [screenSize, setScreenSize] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight,
-    });
-
     const [arrayMenu, setArrayMenu] = useState(["list_type", "list_type_hover", "list_type"]);
     let fakeArrayMenu = ["list_type", "list_type_hover", "list_type"];
-    const [paginationElement, setPaginationElement] = useState<JSX.Element[]>([]);
-
-    useEffect(() => {
-        function handleResize() {
-            setScreenSize({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
-        }
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    useEffect(() => {
-        if(screenSize.width < 1920) {
-            setNumberPaginationBack(5);
-        }
-        console.log("SIZE ==> ", screenSize.width)
-        const elements: JSX.Element[] = [];
-
-        for (let i = 0; i < numberPaginationBack; i++) {
-            if (i === 2) {
-                elements.push(<span key={i} className={Style.span_selected}>{i + 1}</span>);
-                return;
-            }
-            elements.push(<span key={i} className={Style.span}>{i + 1}</span>);
-        }
-
-        setPaginationElement(elements);
-    }, [numberPaginationBack, screenSize]);
 
     const handleClickMyMenu = (id: number) => {
         for (let i = 0; i < fakeArrayMenu.length; i++) {
@@ -58,6 +22,10 @@ export default function Profile() {
 
         setArrayMenu(fakeArrayMenu);
     }
+
+    const getPosts = async (page: number) => {
+        console.log("LOG ==> ", page)
+    }    
 
     return (
         <div className={Style.profile_container}>
@@ -119,16 +87,7 @@ export default function Profile() {
                     <div className={Style.box_post_component}><Post /></div>
                 </div>
 
-                <div className={Style.pagination}>
-                    <div className={Style.pagination_box}>
-                        <div className={Style.arrow_left}><FontAwesomeIcon icon={faArrowLeft} /></div>
-
-                        <div className={Style.pagination_numbers}>
-                            {paginationElement}
-                        </div>
-                        <div className={Style.arrow_right}><FontAwesomeIcon icon={faArrowRight} /></div>
-                    </div>
-                </div>
+                <Pagination onPageChange={getPosts} />  
             </div>
         </div>
     )

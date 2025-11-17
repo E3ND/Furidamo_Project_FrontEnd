@@ -47,7 +47,8 @@ export default function ChatPage() {
 
                     <div className={Style.input_box}>
                         <div className={Style.input}>
-                            <input type='text' placeholder='Digite sua menssagem...' />
+                            <textarea placeholder='Digite sua menssagem...' ></textarea>
+                            {/* <input type='text' placeholder='Digite sua menssagem...' /> */}
                             <div>
                                 <FontAwesomeIcon icon={faPaperPlane} />
                             </div>

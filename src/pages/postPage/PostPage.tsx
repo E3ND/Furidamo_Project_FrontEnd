@@ -13,9 +13,9 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 
 import Style from './styles.module.scss';
-import Comment from "../../comment/Comment";
-import Reply from "../../reply/Reply";
-import Header from "../../header/Header";
+import Comment from "../../components/comment/Comment";
+import Reply from "../../components/reply/Reply";
+import Header from "../../components/header/Header";
 
 
 export default function PostPage() {
@@ -65,7 +65,7 @@ export default function PostPage() {
                 <div className={Style.box}>
                     
                     <div className={Style.back_page}>
-                            <Link to="/" className={Style.back_page_link}>
+                            <Link to="/forum" className={Style.back_page_link}>
                                 <div><FontAwesomeIcon icon={faArrowLeft} /></div>
                                 <p>Voltar</p>
                             </Link>

@@ -1,33 +1,32 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import axios from 'axios';
 
-import Style from './style.module.scss';
-import { IResponseLoginUser } from '../interfaces/loginRegister';
-import WarningBar from '../../warningBar/WarningBar';
-import { AuthContext } from '../../../context/UserProvider';
-import { Link } from 'react-router-dom';
+import { IResponseLoginUser } from "../interfaces/loginRegister";
+import WarningBar from "../../components/warningBar/WarningBar";
 
-export default function Login() {
-    const { authToken } = useContext(AuthContext);
+import Style from './style.module.scss';
+
+export default function Register() {
     const apiUrl: string = process.env.REACT_APP_API_URL as string;
 
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [pointerBlocker, setPointerBlocker] = useState('');
     const [alert, setAlert] = useState<{ type: 'error' | 'success' | null, message: string }>({ type: null, message: '' });
 
     let userToken: IResponseLoginUser;
 
     useEffect(() => {
-        if (!email || !password) {
+        if (!name || !email || !password || !password || password !== confirmPassword) {
             setPointerBlocker('pointer_block');
         } else {
             setPointerBlocker('pointer_free');
         }
+    }, [name, email, password, confirmPassword])
 
-    }, [email, password])
-
-    async function loginUser() {
+    async function registerUser() {
         if(pointerBlocker === 'pointer_block') return
 
         setAlert({ type: null, message: '' });
@@ -39,8 +38,9 @@ export default function Login() {
             return
         }
 
-        const response = await axios.post(`${apiUrl}/user/login`,
+        const response = await axios.post(`${apiUrl}/user/create`,
             {
+                name: name,
                 email: email,
                 password: password,
             },
@@ -48,7 +48,7 @@ export default function Login() {
                 headers: {
                     'Content-Type': 'application/json',
                 }
-            })
+        })
 
         userToken = response.data
 
@@ -56,16 +56,13 @@ export default function Login() {
             setAlert({ type: 'error', message: userToken.message as string });
         }
 
-        authToken(userToken.access_token);
-
         console.log(userToken);
     }
-
+    
     return (
-        <div className={Style.login_container}>
+        <div className={Style.register_container}>
             { alert.type && <WarningBar type={alert.type} message={alert.message} /> }
-            
-            <div className={Style.login_box}>
+            <div className={Style.register_box}>
                 <div className={Style.logo_site}>
                     <img src="image/furidamo_logo.png" alt="Furidamo logo" />
                 </div>
@@ -74,29 +71,28 @@ export default function Login() {
                     <h2>Furidamo</h2>
                 </div>
 
-                <div className={Style.login_input}>
+                <div className={Style.register_input}>
+                    <p>Nome: {name === '' ? <span>(Obrigatório)</span> : ''}</p>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+
+                <div className={Style.register_input}>
                     <p>Email: {email === '' ? <span>(Obrigatório)</span> : ''}</p>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
 
-                <div className={Style.login_input}>
+                <div className={Style.register_input}>
                     <p>Senha: {password === '' ? <span>(Obrigatório)</span> : ''}</p>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
 
-                <div className={Style.login_button}>
-                    <button className={Style[pointerBlocker]} onClick={loginUser}>Logar</button>
+                <div className={Style.register_input}>
+                    <p>Confirmar senha: {confirmPassword !== password ? <span>(As senhas não coincidem)</span> : ''}</p>
+                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 </div>
 
-                <div className={Style.remember_me}>
-                    <input type="checkbox" name="" id="" />
-                    <p>Lembrar de mim</p>
-
-                    <p><Link to='/' className={Style.forgot_password}>Esqueci minha senha</Link></p>
-                </div>
-
-                <div className={Style.have_count}>
-                    <p>Não tem uma conta? <Link to='register' className={Style.count_link}>Cadastre-se</Link></p>
+                <div className={Style.register_button}>
+                    <button className={Style[pointerBlocker]} onClick={registerUser}>Criar conta</button>
                 </div>
             </div>
         </div>

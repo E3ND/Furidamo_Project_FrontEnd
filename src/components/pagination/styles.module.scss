@@ -1,0 +1,77 @@
+    .pagination {
+        margin-top: 30px;
+        justify-items: center;
+
+        .pagination_box {
+            display: flex;
+            gap: 10px;
+            width: fit-content;
+        }
+
+        .arrow_left {
+            padding: 0 14px;
+            padding-top: 8px;
+            padding-bottom: 6px;
+            border-radius: 10px;
+            background-color: var(--color-card);
+            border: 1px solid var(--color-card-border);
+            color: var(--color-text);
+            cursor: pointer;
+        }
+
+        .arrow_left:hover {
+            transition: 0.2s;
+            color: var(--color-text-hover);
+        }
+
+        .pagination_numbers {
+            display: flex;
+
+            .span {
+                color: var(--color-text);
+                margin: 0 10px;
+                padding: 0 14px;
+                padding-top: 8px;
+                padding-bottom: 6px;
+                border-radius: 10px;
+                background-color: var(--color-card);
+                border: 1px solid var(--color-card-border);
+                color: var(--color-text);
+                cursor: pointer;
+            }
+
+            .span:hover {
+                transition: 0.2s;
+                color: var(--color-text-hover);
+            }
+
+            .span_selected {
+                color: var(--color-text);
+                margin: 0 10px;
+                padding: 0 14px;
+                padding-top: 8px;
+                padding-bottom: 6px;
+                border-radius: 10px;
+                background-color: var(--color-site);
+                border: 1px solid var(--color-text-hover);
+                color: var(--color-text);
+                cursor: pointer;
+            }
+        }
+
+        .arrow_right {
+            padding: 0 14px;
+            padding-top: 8px;
+            padding-bottom: 6px;
+            border-radius: 10px;
+            background-color: var(--color-card);
+            border: 1px solid var(--color-card-border);
+            color: var(--color-text);
+            cursor: pointer;
+        }
+
+        .arrow_right:hover {
+            transition: 0.2s;
+            color: var(--color-text-hover);
+        }
+    }
