@@ -1,0 +1,4 @@
+@mixin hover-style {
+  transition: 0.2s;
+  color: var(--color-text-hover);
+}

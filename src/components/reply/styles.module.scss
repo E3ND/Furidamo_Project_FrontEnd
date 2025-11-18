@@ -12,7 +12,7 @@
             min-height: 40px;
             box-sizing: border-box;
             padding: 5px 10px;
-            font-size: clamp(1rem, 0.5vw, 3rem);
+            font-size: clamp(1rem, 0.5vw, 3rem); // TODO colocar isso em todo o site
             border-radius: 6px;
         }
     }
@@ -32,8 +32,7 @@
         }
 
         div:hover {
-            transition: 0.2s;
-            color: var(--color-text-hover);
+            @include hover-style;
         }
 
         button {
@@ -47,8 +46,7 @@
         }
 
         button:hover {
-            transition: 0.2s;
-            background-color: var(--color-site-hover);
+            @include hover-style;
             color: var(--color-text-hover);
         }
     }

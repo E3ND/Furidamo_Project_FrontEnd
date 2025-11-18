@@ -76,8 +76,7 @@
             }
 
             .pointer_free:hover {
-                transition: 0.2s;
-                color: var(--color-text-hover);
+                @include hover-style;
                 background-color: #0e4bbe;
             }
         }

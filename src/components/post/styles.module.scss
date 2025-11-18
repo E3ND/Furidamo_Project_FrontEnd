@@ -18,8 +18,7 @@
         }
 
         p:hover {
-            transition: 0.2s;
-            color: var(--color-text-hover);
+            @include hover-style;
         }
     }
     
@@ -46,8 +45,7 @@
             }
 
             .title_link:hover {
-                transition: 0.2s;
-                color: var(--color-text-hover);
+                @include hover-style;
             }
 
         }

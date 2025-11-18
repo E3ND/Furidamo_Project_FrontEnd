@@ -22,7 +22,6 @@
         height: fit-content;
         color: var(--color-text);
         display: inline-block;
-        margin-top: 50px;
         padding: 25px 40px;
         background-color: var(--color-card);
         border: 2px solid var(--color-card-border);
@@ -88,7 +87,86 @@
 
         figure {
             display: inline-flex;
-            gap: 0;
+            gap: 20px;
+
+            img {
+                width: 100px;
+                height: 80px;
+                border-radius: 10px;
+            }
+        }
+
+        .tags {
+            margin: 20px 0;
+
+            .tags_container {
+                margin: 20px 0;
+                display: flex;
+
+                input {
+                    @include input-style;
+                }
+
+                div {
+                    p {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        margin: 0 0 0 15px;
+                        gap: 10px
+                    }
+                }
+
+                div > *:hover {
+                    @include hover-style;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        fieldset {
+            border-style: none;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            div {
+                padding: 5px;
+                background-color: var(--color-site-hover);
+                border-radius: 10px;
+
+                p {
+                    font-size: 12px;
+                    padding: 3px 5px;
+                }
+            }
+        }
+
+        .submit_buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+
+            div:first-child {
+                margin: auto 0;
+            }
+
+            div:first-child:hover {
+                @include hover-style;
+                cursor: pointer;
+            }
+
+            div:last-child {
+                background-color: var(--color-site-hover);
+                padding: 10px;
+                border-radius: 5px;
+                font-size: clamp(1rem, 0.5vw, 3rem);;
+            }
+
+            div:last-child:hover {
+                @include hover-style;
+                cursor: pointer;
+            }
         }
     }
 }

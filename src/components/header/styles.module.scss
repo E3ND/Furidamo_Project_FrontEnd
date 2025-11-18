@@ -28,8 +28,7 @@
         }
         
         .menu_open_icon:hover {
-            transition: 0.2s;
-            color: var(--color-text-hover);
+            @include hover-style;
         }
 
         .menu_page {
@@ -75,8 +74,7 @@
             }
 
             div:hover {
-                transition: 0.2s;
-                color: var(--color-text-hover);
+                @include hover-style;
             }
         }
 
@@ -201,8 +199,7 @@
                 }
 
                 .link_profile:hover {
-                    transition: 0.2s;
-                    color: var(--color-text-hover);
+                    @include hover-style;
                 }
 
                 img {

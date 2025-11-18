@@ -39,8 +39,7 @@
                 }
     
                 .back_page_link:hover {
-                    transition: 0.2s;
-                    color: var(--color-text-hover);
+                    @include hover-style;
                 }
             }
     
@@ -119,8 +118,7 @@
                 }
     
                 div:hover {
-                    transition: 0.2s;
-                    color: var(--color-text-hover);
+                    @include hover-style;
                 }
     
                 .answer_button {
@@ -163,8 +161,7 @@
                     }
     
                     div:hover {
-                        transition: 0.2s;
-                        color: var(--color-text-hover);
+                        @include hover-style;
                     }
     
                     button {
@@ -178,8 +175,7 @@
                     }
     
                     button:hover {
-                        transition: 0.2s;
-                        background-color: var(--color-site-hover);
+                        @include hover-style;
                         color: var(--color-text-hover);
                     }
                 }

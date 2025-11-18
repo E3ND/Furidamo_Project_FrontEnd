@@ -38,26 +38,19 @@ export default function NewPost() {
                         </div>
 
                         <figure>
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
-                            <img width={50} src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
+                            <img src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
+                            <img src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
+                            <img src="https://criticalhits.com.br/wp-content/uploads/2025/05/nightreign-revenant-01.jpg" alt="" />
                         </figure>
 
-                        <div>
+                        <div className={Style.tags}>
                             <p>Tags</p>
-                            <input type="text" placeholder='Buscar tags' />
-                            <div>
-                                <FontAwesomeIcon icon={faPlus} />
-                                Adicionar
+                            <div className={Style.tags_container}>
+                                <input type="text" placeholder='Buscar tags' />
+                                <div>
+                                    
+                                    <p> <FontAwesomeIcon icon={faPlus} />Adicionar</p>
+                                </div>
                             </div>
                         </div>
 
@@ -71,8 +64,10 @@ export default function NewPost() {
                             </div>
                         </fieldset>
 
-                        <div>
-                            <div>Cancelar</div>
+                        <div className={Style.submit_buttons}>
+                            <div>
+                                <p>Cancelar</p>
+                            </div>
                             <div>Publicar post</div>
                         </div>
                     </form>

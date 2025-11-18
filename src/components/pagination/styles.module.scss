@@ -20,8 +20,7 @@
         }
 
         .arrow_left:hover {
-            transition: 0.2s;
-            color: var(--color-text-hover);
+            @include hover-style;
         }
 
         .pagination_numbers {
@@ -41,8 +40,7 @@
             }
 
             .span:hover {
-                transition: 0.2s;
-                color: var(--color-text-hover);
+                @include hover-style;
             }
 
             .span_selected {
@@ -71,7 +69,6 @@
         }
 
         .arrow_right:hover {
-            transition: 0.2s;
-            color: var(--color-text-hover);
+            @include hover-style;
         }
     }
